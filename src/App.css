@@ -1,0 +1,11 @@
+.CouterApp{
+    display: flex;
+}
+
+.body{
+    align-items: center;
+    background-color: #172125;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
