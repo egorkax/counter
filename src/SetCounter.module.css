@@ -65,4 +65,30 @@
     font-size: 30px;
     padding: 10px;
     width: 100px;
+    background-color: #8feeee;
+}
+.setClassDis{
+    border-radius: 5px;
+    color: #172125;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    width: 100px;
+    background-color: #8feeee;
+    opacity: 0.4;
+
+}
+
+
+
+.inputClassError{
+    border: 2px red solid;
+    text-align: center;
+    outline: 0;
+
+}
+.inputClass{
+    text-align: center;
+    border: 2px #8feeee solid;
+    outline: 0;
 }
