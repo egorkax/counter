@@ -15,7 +15,7 @@ import {
 } from "./redux/count-reducer";
 import {AppRootStateType} from "./redux/store";
 
-export function AppWithRedux() {
+export function App() {
 
     const minValue = useSelector<AppRootStateType, number>(state => state.count.minValue)
     const maxValue = useSelector<AppRootStateType, number>(state => state.count.maxValue)
