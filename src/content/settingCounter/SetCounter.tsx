@@ -1,5 +1,5 @@
-import React, {ChangeEvent, useState} from "react";
-import  s from './SetCounter.module.css'
+import React, {ChangeEvent} from "react";
+import s from './SetCounter.module.css'
 
 
 type SetCounterPropsType = {
@@ -9,7 +9,7 @@ type SetCounterPropsType = {
     changeMinValue: (maxValue: number) => void
     setButton: () => void
     errorValue:boolean
-    disabledValue1:boolean
+    disabledValue:boolean
 }
 
 export const SetCounter = (props: SetCounterPropsType) => {
@@ -28,7 +28,7 @@ export const SetCounter = (props: SetCounterPropsType) => {
     }
 
     const inputClassName=props.errorValue?s.inputClassError: s.inputClass;
-    const setBtClassName=props.disabledValue1?s.setClassDis:s.set
+    const setBtClassName=props.disabledValue?s.setClassDis:s.set
 
     return (
         <div className={s.setCounter}>
@@ -45,7 +45,7 @@ export const SetCounter = (props: SetCounterPropsType) => {
                 </label>
             </div>
             <div className={s.blockSet}>
-                <button  disabled={props.disabledValue1} onClick={onClickHandler}  className={setBtClassName}>set</button>
+                <button  disabled={props.disabledValue} onClick={onClickHandler}  className={setBtClassName}>set</button>
 
             </div>
 

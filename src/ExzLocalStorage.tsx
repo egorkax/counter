@@ -1,13 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 
-import {Counter} from "./Counter";
-import {SetCounter} from "./SetCounter";
-
-// type DisplayType = {
-//     display: number
-//     maxValue: number
-// }
+import {Counter} from "./content/counter/Counter";
+import {SetCounter} from "./content/settingCounter/SetCounter";
 
 function App() {
     const [minValue, setMinValue] = useState<number>(0)
@@ -18,6 +13,8 @@ function App() {
     const [disabled, setDisabled] = useState<boolean>(false)
     const [disabled1, setDisabled1] = useState<boolean>(true)
 
+
+
     useEffect(()=>{
         let minValueAsString=localStorage.getItem('minValue')
         let maxValueAsString=localStorage.getItem('maxValue')
@@ -25,6 +22,7 @@ function App() {
            let newMinValue=JSON.parse(minValueAsString)
            setMinValue(newMinValue)
            setDisplayValue(newMinValue)
+           setResValue(newMinValue)
            let newMaxValue=JSON.parse(maxValueAsString)
            setMaxValue(newMaxValue)
 
@@ -36,18 +34,12 @@ function App() {
 
     const changeMinValue = (value: number) => {
         setMinValue(value)
-        if (value < 0) {
+        if (value < 0 || value >= maxValue  ) {
             setError(true)
             setDisabled(true)
             setDisabled1(true)
             setDisplayValue('Incorrect value!!')
-        } else if (value >= maxValue) {
-            setError(true)
-            setDisabled(true)
-            setDisabled1(true)
-            setDisplayValue('Incorrect value!!')
-
-        } else {
+            } else {
             setDisabled(true)
             setDisabled1(false)
             setError(false)
@@ -114,7 +106,7 @@ function App() {
                     changeMaxValue={changeMaxValue}
                     setButton={setButton}
                     errorValue={error}
-                    disabledValue1={disabled1}
+                    disabledValue={disabled1}
 
                 />
                 <Counter
@@ -135,4 +127,3 @@ function App() {
 }
 
 
-export default App;
